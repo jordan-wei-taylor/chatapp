@@ -2,3 +2,5 @@ flask==2.3.3
 Flask-Markdown
 Flask-SocketIO
 pyyaml
+eventlet
+openai
