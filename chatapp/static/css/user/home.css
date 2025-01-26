@@ -1,0 +1,52 @@
+@import "../template.css";
+
+.module-section {
+    display: flex; /* Flex container */
+    justify-content: center; /* Center-align items horizontally */
+    align-items: center; /* Center-align items vertically */
+    flex-wrap: wrap; /* Wrap items to new line when needed */
+    gap: 20px; /* Gap between modules */
+    margin-top: 20px; /* Increased margin on top for more space */
+    margin-bottom: 20px;
+    width: 100%; /* Full width */
+    max-width: 750px; /* Maximum width for modules */
+}
+.module {
+    width: 150px; /* Square width */
+    height: 150px; /* Square height */
+    background-color: #fff; /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    text-align: center; /* Center-align content */
+    display: flex; /* Flex container */
+    justify-content: center; /* Center-align items horizontally */
+    align-items: center; /* Center-align items vertically */
+    border-radius: 10px; /* Increased border-radius for more rounded corners */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+    opacity: 0; /* Initially hidden */
+    transform: translateY(20px); /* Initially translated down */
+    animation: moduleFadeIn 2s ease forwards; /* Animation on load */
+    color: #6a1b9a; /* Purple text color */
+    font-weight: bold;
+    cursor: pointer; /* Pointer cursor on hover */
+
+}
+.module a {
+    text-decoration: none; /* Remove underline */
+    
+    font-weight: bold; /* Bold font weight */
+}
+.module:hover {
+    background-color: #f0f2f5; /* Light gray background color on hover */
+}
+
+/* Keyframes for fading in modules */
+@keyframes moduleFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

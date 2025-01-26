@@ -1,0 +1,44 @@
+{
+    "specific": [
+        "Great work on remembering this specific memory of {}!",
+        "{} is something that happened in a particular place and in a short period of time - nice one!",
+        "That's a specific memory - great job!"
+    ],
+    "extended": [
+        "Great work on remembering a memory. {} seems to be something that last for more than a day. Can you think of something that happened in shorter period of time?",
+        "This seems like a memory of something that lasted more than a day. Can you recall a particular instance during this time? Perhaps something where {}.",
+        "Nice work. Can you recall something that happened within the space of moments or hours within {}?"
+    ],
+    "categoric": [
+        "Can you think of single time {} happened?",
+        "{} seems like a recurring event, can you remember one particular instance of {}, or a memory of something unique that happened within {}?",
+        "{} might be something that happened a few times, can you remember one example of it?"
+    ],
+    "omission": [
+        "It looks like you haven't provided a memory, I wonder if you could give it another try?",
+        "It can be hard to remember memories of particular times and places, but perhaps you can give it another shot?",
+        "See if you can remember a memory of a specific event. It can be anything, even if not very important to you."
+    ],
+    "associate": [
+        "Can you remember a specific thing that happened in a particular place and time?",
+        "This seems like something that is general. Can you recall a specific memory of a particular place and time?",
+        "Can you remember something related to {} that happend in a particular place and within a day? For example, {}"
+    ],
+    "generic": [
+        "Where did {} happen?",
+        "When did {} happen?",
+        "Try and describe the setting and the environment in which {} happened.",
+        "How long did {} last?",
+        "What were some interesting details of the physical place where {} happened?"
+    ],
+    "generic-na": [
+        "Who else was there?",
+        "Can you remember particular thoughts you had?",
+        "Were there particular objects you remember?",
+        "What could you hear, smell, or taste?",
+        "What kind of day was it?",
+        "Can you remember any particular feelings you had?",
+        "What was the most memorable part of this experience?",
+        "Can you describe another part of the experience?"
+    ]
+}

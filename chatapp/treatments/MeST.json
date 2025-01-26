@@ -1,0 +1,11 @@
+{
+    "treatment": {
+        "target": ["specific"],
+        "attempts": 3
+    },
+    "control": {
+        "target": null,
+        "attempts": 1
+
+    }
+}

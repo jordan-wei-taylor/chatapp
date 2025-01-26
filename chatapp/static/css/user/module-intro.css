@@ -1,0 +1,27 @@
+@import "../template.css";
+
+.main {
+    align-items: unset;
+    text-align: justify;
+}
+
+.main button {
+    width: 40px;
+}
+
+h1, h2, h3 {
+    color: var(--theme-colour);
+}
+
+
+.quote {
+    text-align: center;
+}
+
+blockquote {
+    padding:10px 5px;
+    /* border-left:3px solid #ccc;  */
+    display:inline-block;
+    color:#666;
+    /* background:#eee; */
+}

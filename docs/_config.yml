@@ -1,0 +1,54 @@
+title: "Project: Esther"
+theme: just-the-docs
+color_scheme: custom
+
+# baseurl: "" # the subpath of your site, e.g. /blog
+# url: "https://jordan-wei-taylor.github.io/a-stack-of-notes" # the base hostname & protocol for your site, e.g. http://example.com
+# repository: jordan-wei-taylor/a-stack-of-notes # for github-metadata
+
+favicon_ico: "/assets/favicon.svg"
+search_enabled: false
+
+url: https://jordan-wei-taylor.github.io/a-stack-of-notes
+
+nav_external_links_new_tab: true
+
+callouts:
+  warning:
+    color: red
+  note:
+    color: blue
+  caution:
+    color: yellow
+
+collections:
+  general:
+    output: true
+  login:
+    output: true
+  admin:
+    output: true
+  user:
+    output: true
+
+just_the_docs:
+  collections:
+    general:
+      name: General
+    login:
+      name: Login
+    admin:
+      name: Admin
+    user:
+      name: User
+    
+# aux_links:
+#   <img src="/assets/linkedin.svg" width=25px>: "https://uk.linkedin.com/in/jordan-wei-taylor"
+#   <img src="/assets/github.svg" width=25px>: "https://github.com/jordan-wei-taylor"
+
+aux_links_new_tab: true
+
+exclude:
+  - .jekyll-cache
+  - LICENSE
+  - README.md

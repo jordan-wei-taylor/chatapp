@@ -1,0 +1,181 @@
+@import "_variables.css";
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--theme-background-colour);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    max-width: 1000px;
+    flex-wrap: wrap;
+}
+
+.left-column {
+    flex: 1;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.left-column h1 {
+    color: var(--theme-colour);
+    font-size: 56px;
+    margin: 0;
+}
+
+.left-column p {
+    font-size: 20px;
+    color: #1c1e21;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input,
+.login-form select {
+    width: 100%;
+    height: 48px;
+    padding: 14px;
+    margin: 8px 0;
+    border: 1px solid #dddfe2;
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: white;
+    text-align: center; /* Always center text */
+    appearance: none; /* Remove default browser styling */
+}
+
+/* Placeholder color consistency */
+.login-form input::placeholder,
+.login-form select::placeholder {
+    color: #a9a9a9; /* Consistent grey placeholder color */
+    text-align: center; /* Center placeholder text */
+}
+
+/* Ensure dropdown placeholder is grey */
+.login-form select {
+    text-align-last: center; /* Center selected text */
+    color: #a9a9a9; /* Set initial placeholder text color to grey */
+}
+
+.login-form select:valid {
+    color: black; /* Change color to black once a valid option is selected */
+}
+
+
+/* Date input styling */
+.login-form input[type="date"] {
+    color: transparent; /* Hide the text initially */
+    position: relative;
+    text-align: center;
+    padding-left: 35%;
+}
+
+.login-form input[type="date"]:before {
+    content: attr(placeholder);
+    color: #a9a9a9; /* Placeholder color */
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+    pointer-events: none;
+}
+
+/* Remove placeholder on focus or valid input */
+.login-form input[type="date"]:focus:before,
+.login-form input[type="date"]:valid:before {
+    content: '';
+}
+
+.login-form input[type="date"]:focus,
+.login-form input[type="date"]:valid {
+    color: black; /* Show the entered date */
+    text-align: center; /* Ensure date is centered */
+}
+
+.login-form input:invalid,
+.login-form select:invalid {
+    border-color: red;
+}
+
+.login-form input:valid,
+.login-form select:valid {
+    border-color: green;
+}
+
+.login-form button {
+    background-color: var(--theme-colour);
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form button:hover {
+    background-color: var(--theme-colour-variant);
+}
+
+.login {
+    margin-top: 10px;
+    color: var(--theme-colour);
+    text-align: center;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+}
+
+.password-field {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .left-column {
+        width: 100%;
+    }
+}

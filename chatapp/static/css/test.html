@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studies Management</title>
+    <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/admin.js" type="module"></script>
+    <script src="/static/js/admin/studies.js" type="module"></script>
+    <link rel="stylesheet" href="/static/css/admin/studies.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <h1 class="header-title">Study Management</h1>
+        </div>
+        <div class="header-buttons">
+            <button id="header-back">Back</button>
+            <a href="/"><button id="header-logout">Logout</button></a>
+        </div>
+    </header>
+
+    <div class="main">
+        <div class="sidebar" id="sidebar">
+            <div id="dashboard">Dashboard</div>
+            <div id="studies">Studies</div>
+            <div id="export">Export</div>
+            <div id="activation">Activation</div>
+        </div>
+
+        <div class="content" id="content">
+            <!-- New Study Form -->
+            <div class="section">
+                <h2>New Study</h2>
+                <form id="newStudyForm">
+                    <label for="studyName">Name:</label><br>
+                    <input type="text" id="studyName" name="studyName" required><br><br>
+
+                    <label for="studyDropdown">Choose a Treatment:</label><br>
+                    <select id="studyDropdown" name="studyDropdown" required>
+                        <option value="" disabled selected>Select a Treatment</option>
+                        <option value="treatment1">Treatment 1</option>
+                        <option value="treatment2">Treatment 2</option>
+                        <option value="treatment3">Treatment 3</option>
+                    </select><br><br>
+
+                    <label for="treatmentSize">Treatment Size:</label><br>
+                    <input type="number" id="treatmentSize" name="treatmentSize" min="0" required><br><br>
+
+                    <label for="controlSize">Control Size:</label><br>
+                    <input type="number" id="controlSize" name="controlSize" min="0" required><br><br>
+
+                    <!-- Error message -->
+                    <p id="errorMessage" style="color: red; display: none;">Invalid input: Treatment and Control sizes must be non-negative integers.</p>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+
+            <!-- Existing Studies Table -->
+            <div class="section">
+                <h2>Existing Studies</h2>
+                <div class="search-field">
+                    <label for="searchInput">Search by Code or Name:</label><br>
+                    <input type="text" id="searchInput" placeholder="Enter code or name" oninput="filterTable()"><br><br>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Code</th>
+                            <th>Name</th>
+                            <th>Treatment</th>
+                            <th>Treatment Size</th>
+                            <th>Control Size</th>
+                            <th>Population Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studiesTableBody">
+                        <!-- Dynamic rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <p>Esther © 2024. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("newStudyForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            addEntryToTable();
+        });
+
+        function addEntryToTable() {
+            // Get form values
+            const studyName = document.getElementById("studyName").value;
+            const treatment = document.getElementById("studyDropdown").value;
+            const treatmentSize = document.getElementById("treatmentSize").value;
+            const controlSize = document.getElementById("controlSize").value;
+            const errorMessage = document.getElementById("errorMessage");
+
+            // Validate the input values
+            if (!isNonNegativeInteger(treatmentSize) || !isNonNegativeInteger(controlSize)) {
+                errorMessage.style.display = "block";
+                return; // Stop if invalid input
+            }
+            errorMessage.style.display = "none"; // Hide error message if valid
+
+            // Generate a unique code (random alphanumeric string)
+            const code = generateRandomCode();
+
+            // Calculate population size
+            const populationSize = Number(treatmentSize) + Number(controlSize);
+
+            // Get the table body element
+            const tableBody = document.getElementById("studiesTableBody");
+
+            // Create a new row
+            const newRow = tableBody.insertRow();
+
+            // Add cells and insert form values
+            const codeCell = newRow.insertCell(0);
+            const nameCell = newRow.insertCell(1);
+            const treatmentCell = newRow.insertCell(2);
+            const treatmentSizeCell = newRow.insertCell(3);
+            const controlSizeCell = newRow.insertCell(4);
+            const populationSizeCell = newRow.insertCell(5);
+
+            codeCell.textContent = code;
+            nameCell.textContent = studyName;
+            treatmentCell.textContent = treatment;
+            treatmentSizeCell.textContent = treatmentSize;
+            controlSizeCell.textContent = controlSize;
+            populationSizeCell.textContent = populationSize;
+
+            // Clear the form after submission
+            document.getElementById("newStudyForm").reset();
+        }
+
+        function isNonNegativeInteger(value) {
+            const number = Number(value);
+            return Number.isInteger(number) && number >= 0;
+        }
+
+        function generateRandomCode() {
+            // Generate a random 6-character alphanumeric code
+            return Math.random().toString(36).substring(2, 8).toUpperCase();
+        }
+
+        function filterTable() {
+            const input = document.getElementById("searchInput").value.toLowerCase();
+            const table = document.getElementById("studiesTableBody");
+            const rows = table.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                const codeCell = rows[i].getElementsByTagName("td")[0];
+                const nameCell = rows[i].getElementsByTagName("td")[1];
+                const code = codeCell.textContent || codeCell.innerText;
+                const name = nameCell.textContent || nameCell.innerText;
+
+                if (code.toLowerCase().includes(input) || name.toLowerCase().includes(input)) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

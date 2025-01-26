@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Esther | Login</title>
+
+        <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+        <script src="/static/js/login.js" type="module"></script>
+        <link rel="stylesheet" href="/static/css/login.css">
+
+    </head>
+
+    <body>
+        
+        <div class="main">
+
+            <div class="left-column">
+                <h1>{{ title }}</h1>
+                <p>{{ slogan }}</p>
+            </div>
+
+            <div class="right-column">
+                <div class="login-form">
+                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="password" id="password" class="password-field" placeholder="Password">
+                    <button type="button" id="login">Log In</button>
+                    <p class="error-message" id="error">Incorrect username. Please try again.</p>
+                    <a href="retrieve-username" class="sign-up">Retrieve Username</a>
+                </div>
+            </div>
+
+        </div>
+
+    </body>
+
+</html>

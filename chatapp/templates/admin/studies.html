@@ -1,0 +1,65 @@
+<div class="section">
+    <h2>New Study</h2>
+    <form id="newStudyForm">
+        <label for="studyName">Name:</label><br>
+        <input type="text" id="studyName" name="studyName" required><br><br>
+
+        <label for="studyDropdown">Choose a Treatment:</label><br>
+        <select id="studyDropdown" name="studyDropdown" required>
+            <option value="" disabled selected>Select a Treatment</option>
+        </select><br><br>
+
+        <label for="treatmentSize">Treatment Size:</label><br>
+        <input type="number" id="treatmentSize" name="treatmentSize" min="0" required><br><br>
+
+        <label for="controlSize">Control Size:</label><br>
+        <input type="number" id="controlSize" name="controlSize" min="0" required><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div class="section">
+    <h2>Existing Studies</h2>
+    <div class="search-field">
+        <label for="searchInput">Search by Code or Name:</label><br>
+        <input type="text" id="searchInput" placeholder="Enter code or name"><br><br>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Treatment</th>
+                <th>Treatment Size</th>
+                <th>Control Size</th>
+                <th>Population Size</th>
+            </tr>
+        </thead>
+        <tbody id="studiesTableBody">
+            <!-- <tr>
+                <td>ABC123</td>
+                <td>Study 1</td>
+                <td>Treatment 1</td>
+                <td>30</td>
+                <td>30</td>
+            </tr>
+            <tr>
+                <td>DEF456</td>
+                <td>Study 2</td>
+                <td>Treatment 2</td>
+                <td>25</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>GHI789</td>
+                <td>Study 3</td>
+                <td>Treatment 3</td>
+                <td>20</td>
+                <td>20</td>
+            </tr> -->
+            <!-- Add more studies as needed -->
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,43 @@
+@import "_variables.css";
+
+header {
+    color: var(--theme-colour); /* Purple text color */
+    padding: 10px 20px; /* Padding around header content */
+    display: flex;
+    justify-content: space-between; /* Align items horizontally */
+    align-items: center; /* Align items vertically */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    background-color: var(--theme-background-colour); /* White background */
+    flex-shrink: 0; /* Prevent header from shrinking */
+}
+.header {
+    display: flex
+}
+.header-title {
+    align-items: center;
+    font-size: 24px; /* Larger font size for header title */
+    margin-right: 10px; /* Space between title and subtitle */
+}
+.header-subtitle {
+    margin: auto;
+    font-size: 24px;
+    color: var(--theme-subcolour);
+    
+}
+.header-buttons {
+    display: flex;
+    gap: 10px; /* Gap between buttons */
+}
+.header-buttons button {
+    color: var(--theme-colour); /* Purple text color */
+    border: 2px solid var(--theme-colour); /* Purple border */
+    font-size: 14px;
+    padding: 10px 15px; /* Padding inside button */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 10px; /* Increased border-radius for more rounded corners */
+    background-color: transparent; /* Transparent background */
+}
+.header-buttons button:hover {
+    background-color: var(--theme-colour); /* Purple background color on hover */
+    color: white; /* White text color on hover */
+}

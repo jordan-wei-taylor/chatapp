@@ -1,0 +1,54 @@
+.side-bar {
+    z-index: 0;
+    display: block;
+    flex-wrap: wrap;
+    background-color: #f5f6fa;
+    overflow-x: hidden;
+    overflow-y: auto;
+    direction: rtl;
+    .site-header,
+    .site-footer,
+    .site-nav {
+      direction: ltr;
+    }
+}
+
+.main {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media (min-width: 50rem) {
+  .main {
+    position: relative;
+    max-width: 100%;
+    margin-left: 15.5rem;
+  }
+}
+
+@media (min-width: 66.5rem) {
+  .site-nav,
+  .site-header,
+  .site-footer {
+    width: 20rem;
+  }
+  .side-bar {
+    width: 20rem;
+  }
+  .main {
+    margin-left: 24rem;
+    margin-right: 1.5rem;
+  }
+}
+
+.site-title {
+    color: #6a1b9a;
+}
+
+.aux-nav-list-item {
+  font-size: 24px;
+}
+
+h1, h2 {
+  color: #6a1b9a;
+}

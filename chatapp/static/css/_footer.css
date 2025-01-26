@@ -1,0 +1,9 @@
+@import "_variables.css";
+
+footer {
+    color: var(--theme-colour); /* Purple text color */
+    text-align: center; /* Center-align text */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+    background-color: var(--theme-background-colour); /* White background */
+    flex-shrink: 0; /* Prevent footer from shrinking */
+}

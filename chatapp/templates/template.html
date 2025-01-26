@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {# dynamically set the title (name of the tab) #}
+        <title>{% if subtitle %}{{ title }} | {{ subtitle }}{% else %}{{ title }}{% endif %}</title>
+
+        {# load socket.io.min.js to talk with Python server #}
+        <script src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous"></script>
+
+        {# load base admin js and css #}
+        {% if user=="admin" %}
+        <script src="/static/js/admin.js" type="module"></script>
+        <link rel="stylesheet" href="/static/css/admin.css">
+        {% endif %}
+
+        {# add header.js if header included #}
+        {% if header %}
+        <script src="/static/js/header.js" type="module"></script>
+        {% endif %}
+
+        {# load js if provided #}
+        {% if js %}
+        <script src="/static/js/{{ js }}" type="module"></script>
+        {% endif %}
+
+        {# load css script if provided #}
+        {% if css %}
+        <link rel="stylesheet" href="/static/css/{{ css }}">
+        {% endif %}
+
+        {# module meta data if provided #}
+        {% if module %}
+        <meta id="module" content="{{ module }}">
+        {% endif %}
+
+    </head>
+
+    <body>
+
+        {# header if provided #}
+        {% if header %}
+        <header>
+            <div class="header">
+                <h1 class="header-title">{{ title }}</h1>
+                {% if subtitle %}
+                <h2 class="header-subtitle">{{ subtitle }}</h2>
+                {% endif %}
+            </div>
+            <div class="header-buttons">
+                {% if back %}
+                <button id="header-back">Back</button>
+                {% endif %}
+                {% if logout %}
+                <a href="/"><button id="header-logout">Logout</button></a>
+                {% endif %}
+            </div>
+        </header>
+        {% endif %}
+        
+        {# main section #}
+        <div class="main">
+
+        {# if on an admin page, split the main section into the sidebar and main content #}
+        {% if user=="admin" %}
+        <div class="sidebar" id="sidebar">
+            <div id="dashboard">Dashboard</div>
+            <div id="table-viewer">Table Viewer</div>
+            <div id="generate-new-users">Generate New Users</div>
+            <div id="undo-generation">Undo Generation</div>
+            <div id="deactivate-user">Deactivate User</div>
+            <div id="reactivate-user">Reactivate User</div>
+        </div>
+        <div class="content" id="content">
+            {{ md|markdown }}
+        </div>
+        {% else %}
+        {{ md|markdown }}
+        {% endif %}
+        </div>
+
+        {# footer if provided #}
+        {% if footer %}
+        <footer>
+            <div class="footer">
+                <p class="footer-center">{{ footer_text|markdown }}</p>
+                {% if footer_right %}
+                <p class="footer-right">{{ footer_right|markdown }}</p>
+                {% endif %}
+            </div>
+        </footer>
+        {% endif %}
+
+    </body>
+
+</html>

@@ -1,0 +1,37 @@
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    padding-left: 0;
+}
+
+
+table {
+    width: 800px;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.pagination {
+    margin: 20px 0;
+    display: flex;
+    justify-content: left;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
