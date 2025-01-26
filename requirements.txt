@@ -4,3 +4,4 @@ Flask-SocketIO
 pyyaml
 eventlet
 openai
+requests
