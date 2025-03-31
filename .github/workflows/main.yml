@@ -1,0 +1,5 @@
+steps:
+  - name: setup secrets
+    env:
+      gpt_api_key: ${{ secrets.GPT }}
+      amt_api_key: ${{ secrets.AMT }}
