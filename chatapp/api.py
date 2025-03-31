@@ -33,7 +33,20 @@ def gpt(query):
     client   = openai.OpenAI(**SECRETS['gpt'])
 
     def gen_messages(system, assistant, user = query):
-        return [{"role" : role, "content" : locals()[role]} for role in ['system', 'assistant', 'user']]
+        return [
+            {
+                "role": "system",
+                "content": system
+            },
+            {
+                "role": "assistant",
+                "content": assistant
+            },
+            {
+                "role": "user",
+                "content": user
+            }
+        ]
     
     kwargs       = dict(model = GPT_MODEL, temperature = 0.)
 
