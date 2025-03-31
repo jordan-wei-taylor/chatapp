@@ -5,14 +5,24 @@ import math
 import json
 import time
 import random
+import os
 
 # parameters for GPT API
 GPT_MODEL      = "gpt-3.5-turbo"
 THRESHOLD      = 0.6
 
 # credentials for APIs
-with open('.secret-keys') as f:
-    SECRETS = json.load(f)
+SECRETS = {
+    "amt": {
+        "url": "https://api-inference.huggingface.co/models/exp-psych-lab/AMT-pipeline",
+        "headers": {
+            "Authorization": os.environ['amt_api_key']
+        }
+    },
+    "gpt": {
+        "api_key": os.environ['gpt_api_key']
+    }
+}
 
 # predefined responses
 with open('responses.json') as file:
